@@ -1,0 +1,39 @@
+﻿@page
+@model ScriptsApplication.Views.Home.GeneratePdfModel
+@{
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Script Writer</title>
+    <!-- Include any necessary CSS styles here -->
+    <style>
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Script Writer</h2>
+    <form action="/Home/GeneratePdf" method="post">
+        <label for="tableName">Enter TableName:</label>
+        <input type="text" id="tableName" name="tableName" >
+        <label for="ProjecttypeIDList">Enter ID's List:</label>
+        <input type="text" id="ProjecttypeIDList" name="ProjecttypeIDList" >
+        <label for="ColumnName">Column Name:</label>
+        <input type="text" id="ColumnName" name="ColumnName">
+        <h2>Child Table Script Writer</h2>
+        <label for="childTableName">Enter ChildTableName:</label>
+        <input type="text" id="childTableName" name="childTableName">
+        <label for="ChildScript">Enter ChildScript:</label>
+        <textarea id="ChildScript" name="ChildScript" rows="4" cols="40"></textarea>
+        <button type="submit">Download SQL Script</button>
+    </form>
+    @if (ViewBag.ValidationMessage != null)
+    {
+        <p>@ViewBag.ValidationMessage</p>
+    }
+</body>
+</html>
